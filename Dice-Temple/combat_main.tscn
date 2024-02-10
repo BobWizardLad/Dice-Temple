@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgfnu7365whg1"]
+
+[ext_resource type="Script" path="res://combat_main.gd" id="1_b7gf2"]
+[ext_resource type="Script" path="res://DiceService.gd" id="1_opug8"]
+
+[node name="CombatMain" type="Node2D"]
+script = ExtResource("1_b7gf2")
+
+[node name="DiceService" type="Node2D" parent="."]
+script = ExtResource("1_opug8")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="UI"]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 616.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 80
+text = "Roll"
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 287.0
+offset_top = 282.0
+offset_right = 357.0
+offset_bottom = 351.0
+
+[connection signal="button_down" from="UI/Button" to="." method="_on_button_button_down"]
