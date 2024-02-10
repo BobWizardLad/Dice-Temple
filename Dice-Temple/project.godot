@@ -15,6 +15,10 @@ run/main_scene="res://combat_main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/scale=2.0
+
 [dotnet]
 
 project/assembly_name="Dice Temple"
