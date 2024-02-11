@@ -8,7 +8,7 @@ $I am being put on hold!
 AAP is As A Player
 --------------------------------------------
 
->As a player, I want to attack and be attacked.
+*As a player, I want to attack and be attacked.*
 
 >As a player, I want to act in turns.
 

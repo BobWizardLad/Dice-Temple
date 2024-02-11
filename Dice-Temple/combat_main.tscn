@@ -1,21 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgfnu7365whg1"]
+[gd_scene load_steps=5 format=3 uid="uid://dgfnu7365whg1"]
 
 [ext_resource type="Script" path="res://combat_main.gd" id="1_b7gf2"]
 [ext_resource type="Script" path="res://DiceService.gd" id="1_opug8"]
+[ext_resource type="Script" path="res://UnitService.gd" id="3_o777b"]
 [ext_resource type="PackedScene" uid="uid://dtr4jqs87b4t4" path="res://Unit.tscn" id="3_ppxcl"]
-[ext_resource type="Texture2D" uid="uid://b6468kpnhoiis" path="res://unit_silhouette.png" id="3_slgc8"]
-[ext_resource type="Script" path="res://Player.gd" id="4_m8uvx"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vgedg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_slgc8")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="CombatMain" type="Node2D"]
 script = ExtResource("1_b7gf2")
@@ -24,28 +12,14 @@ script = ExtResource("1_b7gf2")
 script = ExtResource("1_opug8")
 
 [node name="UnitService" type="Node2D" parent="."]
+script = ExtResource("3_o777b")
+
+[node name="Enemy" parent="UnitService" instance=ExtResource("3_ppxcl")]
+position = Vector2(822, 423)
+attack = 2
 
 [node name="Player" parent="UnitService" instance=ExtResource("3_ppxcl")]
-
-[node name="Enemy" type="Node2D" parent="UnitService"]
-position = Vector2(833, 422)
-script = ExtResource("4_m8uvx")
-HEALTH_MAX = 8
-health = 8
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UnitService/Enemy"]
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_vgedg")
-
-[node name="ProgressBar" type="ProgressBar" parent="UnitService/Enemy"]
-self_modulate = Color(1, 0, 0, 1)
-offset_left = -85.0
-offset_top = -99.0
-offset_right = 82.0
-offset_bottom = -72.0
-max_value = 8.0
-show_percentage = false
+attack = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -53,10 +27,12 @@ show_percentage = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -232.0
-offset_right = 232.0
+offset_left = -576.0
+offset_right = 44.0
 offset_bottom = 118.0
 grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 
 [node name="DieRoll" type="Label" parent="UI/HBoxContainer"]
 custom_minimum_size = Vector2(152, 118)
@@ -75,7 +51,14 @@ layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Attack" type="Button" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(152, 118)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Atk"
+
+[node name="Camera" type="Camera2D" parent="."]
 position = Vector2(579, 322)
 
 [connection signal="button_down" from="UI/HBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="UI/HBoxContainer/Attack" to="UnitService" method="_on_attack_button_down"]
