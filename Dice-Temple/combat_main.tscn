@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgfnu7365whg1"]
+[gd_scene load_steps=7 format=3 uid="uid://dgfnu7365whg1"]
 
 [ext_resource type="Script" path="res://combat_main.gd" id="1_b7gf2"]
 [ext_resource type="Script" path="res://DiceService.gd" id="1_opug8"]
+[ext_resource type="PackedScene" uid="uid://dtr4jqs87b4t4" path="res://Unit.tscn" id="3_ppxcl"]
 [ext_resource type="Texture2D" uid="uid://b6468kpnhoiis" path="res://unit_silhouette.png" id="3_slgc8"]
 [ext_resource type="Script" path="res://Player.gd" id="4_m8uvx"]
 
@@ -24,18 +25,20 @@ script = ExtResource("1_opug8")
 
 [node name="UnitService" type="Node2D" parent="."]
 
-[node name="Player" type="Node2D" parent="UnitService"]
-position = Vector2(155, 310)
+[node name="Player" parent="UnitService" instance=ExtResource("3_ppxcl")]
+
+[node name="Enemy" type="Node2D" parent="UnitService"]
+position = Vector2(833, 422)
 script = ExtResource("4_m8uvx")
 HEALTH_MAX = 8
 health = 8
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UnitService/Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UnitService/Enemy"]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_vgedg")
 
-[node name="ProgressBar" type="ProgressBar" parent="UnitService/Player"]
+[node name="ProgressBar" type="ProgressBar" parent="UnitService/Enemy"]
 self_modulate = Color(1, 0, 0, 1)
 offset_left = -85.0
 offset_top = -99.0
@@ -47,13 +50,13 @@ show_percentage = false
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
-offset_right = 464.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.0
+offset_right = 232.0
 offset_bottom = 118.0
-
-[node name="Button" type="Button" parent="UI/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Roll"
+grow_horizontal = 2
 
 [node name="DieRoll" type="Label" parent="UI/HBoxContainer"]
 custom_minimum_size = Vector2(152, 118)
@@ -61,10 +64,18 @@ layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Roll"
+
 [node name="HealthRead" type="Label" parent="UI/HBoxContainer"]
 custom_minimum_size = Vector2(152, 118)
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 322)
 
 [connection signal="button_down" from="UI/HBoxContainer/Button" to="." method="_on_button_button_down"]
