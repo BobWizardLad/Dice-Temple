@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtr4jqs87b4t4"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_facsw"]
+[ext_resource type="Script" path="res://Unit.gd" id="1_rvgsd"]
 [ext_resource type="Texture2D" uid="uid://b6468kpnhoiis" path="res://unit_silhouette.png" id="2_43whn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vgedg"]
@@ -16,7 +16,7 @@ animations = [{
 
 [node name="Player" type="Node2D"]
 position = Vector2(270, 425)
-script = ExtResource("1_facsw")
+script = ExtResource("1_rvgsd")
 HEALTH_MAX = 8
 health = 8
 metadata/_edit_group_ = true

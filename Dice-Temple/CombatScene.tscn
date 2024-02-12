@@ -1,25 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgfnu7365whg1"]
 
-[ext_resource type="Script" path="res://combat_main.gd" id="1_b7gf2"]
-[ext_resource type="Script" path="res://DiceService.gd" id="1_opug8"]
-[ext_resource type="Script" path="res://UnitService.gd" id="3_o777b"]
-[ext_resource type="PackedScene" uid="uid://dtr4jqs87b4t4" path="res://Unit.tscn" id="3_ppxcl"]
+[ext_resource type="Script" path="res://GameService.gd" id="1_gv1es"]
+[ext_resource type="Script" path="res://DiceService.gd" id="2_4xvrb"]
+[ext_resource type="Script" path="res://UnitService.gd" id="3_y5xpm"]
+[ext_resource type="PackedScene" uid="uid://dtr4jqs87b4t4" path="res://Unit.tscn" id="4_n7p2r"]
 
-[node name="CombatMain" type="Node2D"]
-script = ExtResource("1_b7gf2")
+[node name="GameService" type="Node2D"]
+script = ExtResource("1_gv1es")
 
 [node name="DiceService" type="Node2D" parent="."]
-script = ExtResource("1_opug8")
+script = ExtResource("2_4xvrb")
 
 [node name="UnitService" type="Node2D" parent="."]
-script = ExtResource("3_o777b")
+script = ExtResource("3_y5xpm")
 
-[node name="Enemy" parent="UnitService" instance=ExtResource("3_ppxcl")]
+[node name="Player" parent="UnitService" instance=ExtResource("4_n7p2r")]
+attack = 2
+
+[node name="Enemy" parent="UnitService" instance=ExtResource("4_n7p2r")]
 position = Vector2(822, 423)
 attack = 2
-
-[node name="Player" parent="UnitService" instance=ExtResource("3_ppxcl")]
-attack = 2
+team = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -57,8 +58,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "Atk"
 
+[node name="TurnEnd" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Turn End"
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(579, 322)
 
 [connection signal="button_down" from="UI/HBoxContainer/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="UI/HBoxContainer/Attack" to="UnitService" method="_on_attack_button_down"]
+[connection signal="button_down" from="UI/HBoxContainer/TurnEnd" to="." method="_on_turn_end"]
