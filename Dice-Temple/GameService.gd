@@ -2,29 +2,57 @@ extends Node2D
 
 @onready var dice_service: Node2D = $DiceService
 @onready var unit_service: Node2D = $UnitService
-@onready var roll_display: Control = $UI/HBoxContainer/DieRoll
-@onready var health_display: Control = $UI/HBoxContainer/HealthRead
 
 var round_length: int # Each unit under unit_service has an implicit index
-var turn: int
+var turn: int # The current turn index - who's turn is it?
+var is_player_active: bool # is it the player's turn?
+var has_attacked: bool # Current unit's turn has atacked
 
 func _ready():	
-	health_display.text = String.num_int64(unit_service.units[1].get_health())
 	turn = 0
 	round_length = unit_service.units.size()
+	has_attacked = false
 	
-# Take a turn of combat with the turn variable's selected unit
-func take_turn() -> bool:
-	# Update the player's state - bad status, fading buffs, on-your-next-turn events
-	# Call unit_service for character options
-	# Open the turn UI
-	unit_service.resolve_attack(unit_service.units[(turn + 1) % round_length], unit_service.units[turn])
+	if turn == 0:
+		is_player_active = true
+		take_player_turn()
+	else:
+		take_npc_turn()
+
+#------------------------------------- Turn System -------------------------------------
+
+# Player takes a turn of combat, called when turn end resolves to player's turn
+func take_player_turn() -> bool:
+	if turn == 0:
+		is_player_active = true
+		
 	return true # Exit and wait until player signal prompts us to do something
 
-func _on_button_button_down():
-	roll_display.text = String.num_int64(dice_service.roll(6))
+# Player takes a turn of combat, called when turn end resolves to non-player's turn
+func take_npc_turn() -> bool:
+	
+	# Enemy autoresolves to attack player (always index 0)
+	unit_service.resolve_attack(unit_service.units[0], unit_service.units[1], dice_service)
+	_on_turn_end()
+	
+	return true # Exit and wait until player signal prompts us to do something
 
-
+# Call when the end turn button is pressed, this will deactivate the player
+# and increment the turn order.
 func _on_turn_end():
-	turn = (turn + 1) % round_length
-	take_turn()
+	if is_player_active:
+		turn = (turn + 1) % round_length
+		has_attacked = false
+		if turn == 0:
+			is_player_active = false
+			take_player_turn()
+		else:
+			take_npc_turn()
+
+# Called when player presses the attack button.
+func _on_attack():
+	if not has_attacked:
+		unit_service.resolve_attack(unit_service.units[1], unit_service.units[0], dice_service)
+		has_attacked = true
+	else:
+		pass # --TODO-- Give user feedback

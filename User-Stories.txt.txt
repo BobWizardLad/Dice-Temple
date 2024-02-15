@@ -10,8 +10,8 @@ AAP is As A Player
 
 *As a player, I want to attack and be attacked.*
 
->As a player, I want to act in turns.
+*As a player, I want to act in turns.*
 
->AAP, I want to act on a button press.
+*AAP, I want to act on a button press.*
 
->AAP, I want to get attacked in a turn sequence.
+*AAP, I want to get attacked in a turn sequence.*
