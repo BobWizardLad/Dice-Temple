@@ -15,3 +15,11 @@ AAP is As A Player
 *AAP, I want to act on a button press.*
 
 *AAP, I want to get attacked in a turn sequence.*
+
+>AAP, I want unique attacks.
+
+>AAP, I want a dice that calls attacks.
+
+>AAP, I want enemies to roll for attacks.
+
+>AAP, I want visual feedback for actions in the game.
