@@ -13,6 +13,8 @@ extends Node2D
 # target: Unit; attacker: Unit
 func resolve_attack(target: Node2D, attacker: Node2D):
 	var hit_value = roll_event(attacker)
+	attacker.anim_attack()
+	target.anim_damaged()
 	target.mod_health(-1 * hit_value)
 	print("HIYAAA from " + attacker.to_string())
 
