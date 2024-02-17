@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtr4jqs87b4t4"]
+[gd_scene load_steps=6 format=3 uid="uid://dtr4jqs87b4t4"]
 
 [ext_resource type="Script" path="res://Unit.gd" id="1_rvgsd"]
+[ext_resource type="Script" path="res://AttacksHandler.gd" id="2_6pr0m"]
 [ext_resource type="Texture2D" uid="uid://b6468kpnhoiis" path="res://unit_silhouette.png" id="2_43whn"]
+[ext_resource type="Script" path="res://AttackContainer.gd" id="3_chmgv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vgedg"]
 animations = [{
@@ -20,6 +22,12 @@ script = ExtResource("1_rvgsd")
 HEALTH_MAX = 8
 health = 8
 metadata/_edit_group_ = true
+
+[node name="AttacksHandler" type="Node2D" parent="."]
+script = ExtResource("2_6pr0m")
+
+[node name="Attack" type="Node2D" parent="AttacksHandler"]
+script = ExtResource("3_chmgv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
