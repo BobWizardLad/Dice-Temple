@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtr4jqs87b4t4"]
+
+[ext_resource type="Script" path="res://assets/scripts/Unit.gd" id="1_hch4a"]
+[ext_resource type="Script" path="res://assets/scripts/AttacksHandler.gd" id="2_i7xa4"]
+[ext_resource type="Script" path="res://assets/scripts/AttackContainer.gd" id="3_5sxar"]
+[ext_resource type="Texture2D" uid="uid://b6468kpnhoiis" path="res://assets/sprites/unit_silhouette.png" id="4_cd7l4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vgedg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cd7l4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Unit" type="Node2D"]
+position = Vector2(270, 425)
+script = ExtResource("1_hch4a")
+HEALTH_MAX = 8
+health = 8
+metadata/_edit_group_ = true
+
+[node name="AttacksHandler" type="Node2D" parent="."]
+script = ExtResource("2_i7xa4")
+
+[node name="Attack" type="Node2D" parent="AttacksHandler"]
+script = ExtResource("3_5sxar")
+
+[node name="Attack2" type="Node2D" parent="AttacksHandler"]
+script = ExtResource("3_5sxar")
+
+[node name="Attack3" type="Node2D" parent="AttacksHandler"]
+script = ExtResource("3_5sxar")
+
+[node name="Attack4" type="Node2D" parent="AttacksHandler"]
+script = ExtResource("3_5sxar")
+
+[node name="Attack5" type="Node2D" parent="AttacksHandler"]
+script = ExtResource("3_5sxar")
+
+[node name="Attack6" type="Node2D" parent="AttacksHandler"]
+script = ExtResource("3_5sxar")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_vgedg")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -85.0
+offset_top = -99.0
+offset_right = 82.0
+offset_bottom = -72.0
+max_value = 8.0
+show_percentage = false

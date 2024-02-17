@@ -1,24 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgfnu7365whg1"]
+[gd_scene load_steps=6 format=3 uid="uid://dgfnu7365whg1"]
 
-[ext_resource type="Script" path="res://GameService.gd" id="1_gv1es"]
-[ext_resource type="Script" path="res://DiceService.gd" id="2_4xvrb"]
-[ext_resource type="Script" path="res://UnitService.gd" id="3_y5xpm"]
-[ext_resource type="PackedScene" uid="uid://dtr4jqs87b4t4" path="res://Unit.tscn" id="4_n7p2r"]
+[ext_resource type="Script" path="res://assets/scripts/GameService.gd" id="1_2v1jr"]
+[ext_resource type="Script" path="res://assets/scripts/DiceService.gd" id="2_s5568"]
+[ext_resource type="Script" path="res://assets/scripts/UnitService.gd" id="3_lnayv"]
+[ext_resource type="PackedScene" uid="uid://dtr4jqs87b4t4" path="res://componentScenes/Unit.tscn" id="4_n7p2r"]
+[ext_resource type="Resource" uid="uid://dh370xeg8m05q" path="res://assets/resources/beam.tres" id="5_flugx"]
 
 [node name="GameService" type="Node2D"]
-script = ExtResource("1_gv1es")
+script = ExtResource("1_2v1jr")
 
 [node name="DiceService" type="Node2D" parent="."]
-script = ExtResource("2_4xvrb")
+script = ExtResource("2_s5568")
 
 [node name="UnitService" type="Node2D" parent="."]
-script = ExtResource("3_y5xpm")
+script = ExtResource("3_lnayv")
 
 [node name="Player" parent="UnitService" instance=ExtResource("4_n7p2r")]
+
+[node name="Attack" parent="UnitService/Player/AttacksHandler" index="0"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack2" parent="UnitService/Player/AttacksHandler" index="1"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack3" parent="UnitService/Player/AttacksHandler" index="2"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack4" parent="UnitService/Player/AttacksHandler" index="3"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack5" parent="UnitService/Player/AttacksHandler" index="4"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack6" parent="UnitService/Player/AttacksHandler" index="5"]
+attack_unique = ExtResource("5_flugx")
 
 [node name="Enemy" parent="UnitService" instance=ExtResource("4_n7p2r")]
 position = Vector2(822, 423)
 team = 1
+
+[node name="Attack" parent="UnitService/Enemy/AttacksHandler" index="0"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack2" parent="UnitService/Enemy/AttacksHandler" index="1"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack3" parent="UnitService/Enemy/AttacksHandler" index="2"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack4" parent="UnitService/Enemy/AttacksHandler" index="3"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack5" parent="UnitService/Enemy/AttacksHandler" index="4"]
+attack_unique = ExtResource("5_flugx")
+
+[node name="Attack6" parent="UnitService/Enemy/AttacksHandler" index="5"]
+attack_unique = ExtResource("5_flugx")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -49,3 +86,6 @@ position = Vector2(579, 322)
 
 [connection signal="button_down" from="UI/HBoxContainer/Attack" to="." method="_on_attack"]
 [connection signal="button_down" from="UI/HBoxContainer/TurnEnd" to="." method="_on_turn_end"]
+
+[editable path="UnitService/Player"]
+[editable path="UnitService/Enemy"]
