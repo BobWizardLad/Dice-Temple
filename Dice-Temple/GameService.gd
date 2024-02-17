@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var dice_service: Node2D = $DiceService
 @onready var unit_service: Node2D = $UnitService
 
 var round_length: int # Each unit under unit_service has an implicit index
@@ -32,7 +31,7 @@ func take_player_turn() -> bool:
 func take_npc_turn() -> bool:
 	
 	# Enemy autoresolves to attack player (always index 0)
-	unit_service.resolve_attack(unit_service.units[0], unit_service.units[1], dice_service)
+	unit_service.resolve_attack(unit_service.units[0], unit_service.units[1])
 	_on_turn_end()
 	
 	return true # Exit and wait until player signal prompts us to do something
@@ -52,7 +51,7 @@ func _on_turn_end():
 # Called when player presses the attack button.
 func _on_attack():
 	if not has_attacked:
-		unit_service.resolve_attack(unit_service.units[1], unit_service.units[0], dice_service)
+		unit_service.resolve_attack(unit_service.units[1], unit_service.units[0])
 		has_attacked = true
 	else:
 		pass # --TODO-- Give user feedback
