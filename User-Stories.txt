@@ -22,4 +22,8 @@ AAP is As A Player
 
 *AAP, I want enemies to roll for attacks*
 
->AAP, I want visual feedback for actions in the game.
+>AAP, I want visual feedback for attacks in the Game.
+
+>AAP, I want visual feedback for turn end and enemy attacks.
+
+>AAP, I want visual feedback for a dice roll
