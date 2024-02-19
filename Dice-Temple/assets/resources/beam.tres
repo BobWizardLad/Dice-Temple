@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_dq58f")
+title = "Beam"
 damage = 6
 healing = 0
 blocking = 0

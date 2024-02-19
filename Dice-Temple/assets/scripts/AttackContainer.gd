@@ -8,6 +8,9 @@ func get_attack_unique():
 func set_attack_unique(attack: Resource):
 	attack_unique = attack
 
+func get_title() -> String:
+	return attack_unique.title
+
 func get_damage() -> int:
 	return attack_unique.damage
 

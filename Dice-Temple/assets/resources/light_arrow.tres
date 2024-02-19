@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_pvpsj")
+title = "Light Arrow"
 damage = 4
 healing = 2
 blocking = 0

@@ -17,6 +17,12 @@ func _process(delta):
 func get_health() -> int:
 	return health
 
+func get_health_max() -> int:
+	return HEALTH_MAX
+
+func set_health(value: int):
+	health = value
+
 func mod_health(mod: int) -> void:
 	health += mod
 

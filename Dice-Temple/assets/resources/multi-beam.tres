@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d15i43h010w0s"]
+
+[ext_resource type="Script" path="res://assets/resources/resScripts/UniqueAttack.gd" id="1_nu0rd"]
+
+[resource]
+script = ExtResource("1_nu0rd")
+title = "Multi-Beam"
+damage = 12
+healing = 0
+blocking = 0
