@@ -6,7 +6,7 @@ extends Node2D
 
 @onready var health_display: Control = $ProgressBar
 @onready var attack_handler: Node2D = $AttacksHandler
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 func _ready():
 	health_display.max_value = HEALTH_MAX

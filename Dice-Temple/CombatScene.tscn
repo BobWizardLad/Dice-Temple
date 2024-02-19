@@ -108,7 +108,7 @@ position = Vector2(-11, 77)
 scale = Vector2(0.572266, 0.572266)
 sprite_frames = SubResource("SpriteFrames_7wh2u")
 autoplay = "default"
-frame_progress = 0.676256
+frame_progress = 0.948222
 
 [node name="ProgressBar" parent="UnitService/Player" index="2"]
 offset_left = -86.0
@@ -142,7 +142,7 @@ attack_unique = ExtResource("5_flugx")
 [node name="Sprite" parent="UnitService/Enemy" index="1"]
 sprite_frames = SubResource("SpriteFrames_58kdp")
 autoplay = "default"
-frame_progress = 0.141505
+frame_progress = 0.264401
 
 [node name="UI" type="CanvasLayer" parent="."]
 
