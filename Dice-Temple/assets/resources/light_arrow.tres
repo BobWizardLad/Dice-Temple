@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ces3ks41476pt"]
+
+[ext_resource type="Script" path="res://assets/resources/resScripts/UniqueAttack.gd" id="1_pvpsj"]
+
+[resource]
+script = ExtResource("1_pvpsj")
+damage = 4
+healing = 2
+blocking = 0

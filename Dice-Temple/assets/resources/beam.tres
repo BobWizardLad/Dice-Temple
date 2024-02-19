@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_dq58f")
-damage = 4
+damage = 6
 healing = 0
 blocking = 0

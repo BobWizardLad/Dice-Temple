@@ -12,12 +12,15 @@ extends Node2D
 # expects them to have mod_health and get_attack functions
 # target: Unit; attacker: Unit
 func resolve_attack(target: Node2D, attacker: Node2D):
-	var hit_value = roll_event(attacker)
+	var attack = roll_event(attacker)
+	var hit_value = attack.get_damage()
+	var healing = attack.get_healing()
 	attacker.anim_attack()
 	target.anim_damaged()
 	target.mod_health(-1 * hit_value)
+	attacker.mod_health(healing)
 	print("HIYAAA from " + attacker.to_string())
 
 # All actions that are taken when a dice roll occours
-func roll_event(attacker: Node2D) -> int:
-	return attacker.get_attack_dice()[dice_service.roll() - 1].get_damage()
+func roll_event(attacker: Node2D) -> Node2D:
+	return attacker.get_attack_dice()[dice_service.roll() - 1]
