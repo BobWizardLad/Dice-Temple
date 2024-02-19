@@ -32,7 +32,7 @@ script = ExtResource("3_5sxar")
 [node name="Attack6" type="Node2D" parent="AttacksHandler"]
 script = ExtResource("3_5sxar")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
