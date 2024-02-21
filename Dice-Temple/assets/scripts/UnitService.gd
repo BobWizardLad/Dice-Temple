@@ -3,22 +3,16 @@
 
 extends Node2D
 
-signal on_attack_roll
-
-@onready var dice_service: Node2D = $"../DiceService"
-
 @onready var units: Array[Node] = self.get_children() # All children will be units
 @onready var game_master: Node = get_parent()
 
 # resolve_attack takes two Unit nodes as parameters, and 
 # expects them to have mod_health and get_attack functions
 # target: Unit; attacker: Unit
-func resolve_attack(target: Node2D, attacker: Node2D):
-	var attack = roll_event(attacker)
+func resolve_attack(target: Node2D, attacker: Node2D, attack: Node2D):
 	var hit_value = attack.get_damage()
 	var healing = attack.get_healing()
 	
-	emit_signal("on_attack_roll", attack)
 	attacker.anim_attack()
 	target.anim_damaged()
 	
@@ -35,7 +29,3 @@ func resolve_attack(target: Node2D, attacker: Node2D):
 		target.set_health(0)
 	
 	print("HIYAAA from " + attacker.to_string())
-
-# All actions that are taken when a dice roll occours
-func roll_event(attacker: Node2D) -> Node2D:
-	return attacker.get_attack_dice()[dice_service.roll() - 1]

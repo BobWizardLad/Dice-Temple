@@ -1,13 +1,17 @@
 extends Node2D
 
 @onready var unit_service: Node2D = $UnitService
+@onready var dice_service: Node2D = $DiceService
 
-var round_length: int # Each unit under unit_service has an implicit index
+signal on_attack_roll # Signals the UI to display the attack choice
+
+var round_length: int # Each unit under unit_service has an implicit index.
 var turn: int # The current turn index - who's turn is it?
 var is_player_active: bool # is it the player's turn?
-var has_attacked: bool # Current unit's turn has atacked
+var has_attacked: bool # Current unit's turn has atacked.
+var held_attack # persistent attack choice held for the PLAYER.
 
-func _ready():	
+func _ready():
 	turn = 0
 	round_length = unit_service.units.size()
 	has_attacked = false
@@ -31,7 +35,7 @@ func take_player_turn() -> bool:
 func take_npc_turn() -> bool:
 	
 	# Enemy autoresolves to attack player (always index 0)
-	unit_service.resolve_attack(unit_service.units[0], unit_service.units[1])
+	unit_service.resolve_attack(unit_service.units[0], unit_service.units[1], unit_service.units[1].get_attack_dice()[dice_service.roll()])
 	_on_turn_end()
 	
 	return true # Exit and wait until player signal prompts us to do something
@@ -49,9 +53,17 @@ func _on_turn_end():
 			take_npc_turn()
 
 # Called when player presses the attack button.
+# Roll the dice to present to the player.
 func _on_attack():
 	if not has_attacked:
-		unit_service.resolve_attack(unit_service.units[1], unit_service.units[0])
-		has_attacked = true
+		held_attack = unit_service.units[0].get_attack_dice()[dice_service.roll()]
+		print("Sanity A")
+		emit_signal("on_attack_roll", held_attack)
 	else:
 		pass # --TODO-- Give user feedback
+
+func _on_confirm():
+	unit_service.resolve_attack(unit_service.units[1], unit_service.units[0], held_attack)
+	has_attacked = true
+	held_attack = null
+	emit_signal("on_attack_roll", load("res://assets/resources/BlankAttack.tscn"))

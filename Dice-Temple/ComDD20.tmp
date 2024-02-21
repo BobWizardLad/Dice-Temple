@@ -217,7 +217,6 @@ text = "Confirm"
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(579, 322)
 
-[connection signal="on_attack_roll" from="." to="UI" method="_on_unit_service_on_attack_roll"]
 [connection signal="button_down" from="UI/TurnHeader/Attack" to="." method="_on_attack"]
 [connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="." method="_on_turn_end"]
 [connection signal="button_down" from="UI/AttackHeader/Confirm" to="." method="_on_confirm"]
