@@ -4,6 +4,8 @@ extends Node2D
 @onready var dice_service: Node2D = $DiceService
 
 signal on_attack_roll # Signals the UI to display the attack choice
+signal on_confirm # Signal UI to change back to menu
+signal on_reroll # Signal UI to show new dice face
 
 var round_length: int # Each unit under unit_service has an implicit index.
 var turn: int # The current turn index - who's turn is it?
@@ -57,13 +59,17 @@ func _on_turn_end():
 func _on_attack():
 	if not has_attacked:
 		held_attack = unit_service.units[0].get_attack_dice()[dice_service.roll()]
-		print("Sanity A")
 		emit_signal("on_attack_roll", held_attack)
 	else:
 		pass # --TODO-- Give user feedback
+	
+func _on_reroll():
+		held_attack = unit_service.units[0].get_attack_dice()[dice_service.roll()]
+		emit_signal("on_reroll", held_attack, 3)
 
 func _on_confirm():
 	unit_service.resolve_attack(unit_service.units[1], unit_service.units[0], held_attack)
 	has_attacked = true
 	held_attack = null
-	emit_signal("on_attack_roll", load("res://assets/resources/BlankAttack.tscn"))
+	emit_signal("on_attack_roll", get_node("BlankAttack"))
+	emit_signal("on_confirm")

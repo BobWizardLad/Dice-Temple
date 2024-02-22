@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgfnu7365whg1"]
+[gd_scene load_steps=22 format=3 uid="uid://dgfnu7365whg1"]
 
 [ext_resource type="Script" path="res://assets/scripts/GameService.gd" id="1_2v1jr"]
 [ext_resource type="Script" path="res://assets/scripts/DiceService.gd" id="2_s5568"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://d15i43h010w0s" path="res://assets/resources/multi-beam.tres" id="7_honug"]
 [ext_resource type="Texture2D" uid="uid://dg5rqtd4hl8qe" path="res://assets/sprites/unit_silhouette_attacking.png" id="8_urp4p"]
 [ext_resource type="Script" path="res://UiController.gd" id="12_lfer6"]
+[ext_resource type="PackedScene" uid="uid://b57vmpmd8yu3n" path="res://assets/resources/BlankAttack.tscn" id="13_qamlw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mxik"]
 atlas = ExtResource("6_ddm8p")
@@ -217,9 +218,14 @@ text = "Confirm"
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(579, 322)
 
+[node name="BlankAttack" parent="." instance=ExtResource("13_qamlw")]
+
 [connection signal="on_attack_roll" from="." to="UI" method="_on_unit_service_on_attack_roll"]
+[connection signal="on_confirm" from="." to="UI" method="_on_confirm"]
+[connection signal="on_reroll" from="." to="UI" method="_on_game_service_on_reroll"]
 [connection signal="button_down" from="UI/TurnHeader/Attack" to="." method="_on_attack"]
 [connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="." method="_on_turn_end"]
+[connection signal="button_down" from="UI/AttackHeader/Reroll" to="." method="_on_reroll"]
 [connection signal="button_down" from="UI/AttackHeader/Confirm" to="." method="_on_confirm"]
 
 [editable path="UnitService/Player"]
