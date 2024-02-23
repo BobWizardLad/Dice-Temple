@@ -192,7 +192,6 @@ offset_bottom = 42.432
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "EXAMPLE"
 
 [node name="AttackHeader" type="HBoxContainer" parent="UI"]
 visible = false
@@ -219,12 +218,14 @@ text = "Confirm"
 position = Vector2(579, 322)
 
 [node name="BlankAttack" parent="." instance=ExtResource("13_qamlw")]
+visible = false
 
 [connection signal="on_attack_roll" from="." to="UI" method="_on_unit_service_on_attack_roll"]
 [connection signal="on_confirm" from="." to="UI" method="_on_confirm"]
 [connection signal="on_reroll" from="." to="UI" method="_on_game_service_on_reroll"]
 [connection signal="button_down" from="UI/TurnHeader/Attack" to="." method="_on_attack"]
 [connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="." method="_on_turn_end"]
+[connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="UI" method="_on_turn_end_button_down"]
 [connection signal="button_down" from="UI/AttackHeader/Reroll" to="." method="_on_reroll"]
 [connection signal="button_down" from="UI/AttackHeader/Confirm" to="." method="_on_confirm"]
 

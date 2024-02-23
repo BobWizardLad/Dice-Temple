@@ -62,7 +62,7 @@ func _on_attack():
 		emit_signal("on_attack_roll", held_attack)
 	else:
 		pass # --TODO-- Give user feedback
-	
+
 func _on_reroll():
 		held_attack = unit_service.units[0].get_attack_dice()[dice_service.roll()]
 		emit_signal("on_reroll", held_attack, 3)
