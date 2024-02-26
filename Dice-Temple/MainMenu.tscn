@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://pwkn0vt7sjuc"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_df77h"]
+[ext_resource type="Texture2D" uid="uid://druvmpca3tl3v" path="res://assets/sprites/icon.svg" id="1_duk7p"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_df77h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -252.5
+offset_right = 466.0
+offset_bottom = 252.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_duk7p")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 100.0
+offset_right = 0.5
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Dice Temple"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -148.0
+offset_right = 152.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Exit" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="CanvasLayer/HBoxContainer/Exit" to="." method="_on_exit_button_down"]
