@@ -5,11 +5,10 @@
 [ext_resource type="Script" path="res://assets/scripts/AttackContainer.gd" id="3_5sxar"]
 
 [node name="Unit" type="Node2D"]
-position = Vector2(270, 425)
+position = Vector2(288, 458)
 script = ExtResource("1_hch4a")
 HEALTH_MAX = 8
 health = 8
-metadata/_edit_group_ = true
 
 [node name="AttacksHandler" type="Node2D" parent="."]
 script = ExtResource("2_i7xa4")
@@ -36,7 +35,7 @@ script = ExtResource("3_5sxar")
 scale = Vector2(5, 5)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-self_modulate = Color(1, 0, 0, 1)
+modulate = Color(0.937255, 0, 0, 1)
 offset_left = -85.0
 offset_top = -99.0
 offset_right = 82.0

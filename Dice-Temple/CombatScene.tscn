@@ -99,9 +99,6 @@ texture = ExtResource("3_kuuom")
 position = Vector2(872, 543)
 texture = ExtResource("3_kuuom")
 
-[node name="BlankAttack" parent="." instance=ExtResource("13_qamlw")]
-visible = false
-
 [node name="DiceService" type="Node2D" parent="."]
 script = ExtResource("2_s5568")
 
@@ -265,29 +262,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "Turn End"
 
-[node name="AttackName" type="Label" parent="UI"]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.291
-anchor_right = 0.5
-anchor_bottom = 0.291
-offset_left = -53.0
-offset_top = -61.15
-offset_right = 202.0
-offset_bottom = 23.85
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "TEST"
-
-[node name="Rerolls" type="Label" parent="UI"]
-offset_left = 824.0
-offset_top = 129.0
-offset_right = 853.0
-offset_bottom = 198.0
-theme_override_font_sizes/font_size = 50
-text = "3"
-
 [node name="AttackHeader" type="HBoxContainer" parent="UI"]
 visible = false
 anchors_preset = 5
@@ -309,8 +283,34 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "Confirm"
 
+[node name="Rerolls" type="Label" parent="UI"]
+visible = false
+offset_left = 824.0
+offset_top = 129.0
+offset_right = 853.0
+offset_bottom = 198.0
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="AttackName" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.291
+anchor_right = 0.5
+anchor_bottom = 0.291
+offset_left = -53.0
+offset_top = -61.15
+offset_right = 202.0
+offset_bottom = 23.85
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(579, 322)
+
+[node name="BlankAttack" parent="." instance=ExtResource("13_qamlw")]
+visible = false
 
 [connection signal="game_over" from="." to="UI" method="_on_game_service_game_over"]
 [connection signal="game_win" from="." to="UI" method="_on_game_service_game_win"]
