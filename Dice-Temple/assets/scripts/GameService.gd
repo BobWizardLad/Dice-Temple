@@ -16,6 +16,7 @@ var turn: int # The current turn index - who's turn is it?
 var is_player_active: bool # is it the player's turn?
 var has_attacked: bool # Current unit's turn has atacked.
 var held_attack # persistent attack choice held for the PLAYER.
+var rerolls: int # Number of rerolls player can make in a turn
 
 func _ready():
 	turn = 0
@@ -69,13 +70,18 @@ func _on_turn_end():
 func _on_attack():
 	if not has_attacked:
 		held_attack = unit_service.units[0].get_attack_dice()[dice_service.roll()]
+		rerolls = 3
 		emit_signal("on_attack_roll", held_attack)
 	else:
 		pass # --TODO-- Give user feedback
 
 func _on_reroll():
+	if rerolls > 0:
 		held_attack = unit_service.units[0].get_attack_dice()[dice_service.roll()]
-		emit_signal("on_reroll", held_attack, 3)
+		rerolls -= 1
+		emit_signal("on_reroll", held_attack, rerolls)
+	else:
+		pass # TODO signal better UI feedback
 
 func _on_confirm():
 	unit_service.resolve_attack(unit_service.units[1], unit_service.units[0], held_attack)
