@@ -3,9 +3,13 @@ extends Node2D
 @onready var unit_service: Node2D = $UnitService
 @onready var dice_service: Node2D = $DiceService
 
+var my_scene: Resource = load("res://CombatScene.tscn")
+
 signal on_attack_roll # Signals the UI to display the attack choice
 signal on_confirm # Signal UI to change back to menu
 signal on_reroll # Signal UI to show new dice face
+signal game_win # Signal UI for Game Win
+signal game_over # Signal UI for Game Over
 
 var round_length: int # Each unit under unit_service has an implicit index.
 var turn: int # The current turn index - who's turn is it?
@@ -23,6 +27,12 @@ func _ready():
 		take_player_turn()
 	else:
 		take_npc_turn()
+
+func _process(delta):
+	if unit_service.units[0].get_health() == 0:
+		emit_signal("game_over")
+	if unit_service.units[1].get_health() == 0:
+		emit_signal("game_win")
 
 #------------------------------------- Turn System -------------------------------------
 
@@ -73,3 +83,9 @@ func _on_confirm():
 	held_attack = null
 	emit_signal("on_attack_roll", get_node("BlankAttack"))
 	emit_signal("on_confirm")
+
+func _on_game_end():
+	get_tree().quit()
+
+func _on_end_game_button_down():
+	get_tree().reload_current_scene()

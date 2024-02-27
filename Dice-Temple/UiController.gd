@@ -20,3 +20,11 @@ func _on_game_service_on_reroll(attack: Node2D, rerolls: int):
 
 func _on_turn_end_button_down():
 	$TurnHeader/Attack.modulate = Color(1, 1, 1, 1)
+
+func _on_game_service_game_win():
+	$GameEnd.visible = true
+	$GameEnd/WinMessage.visible = true
+
+func _on_game_service_game_over():
+	$GameEnd.visible = true
+	$GameEnd/LoseMessage.visible = true

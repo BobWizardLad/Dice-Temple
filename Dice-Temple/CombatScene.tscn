@@ -159,6 +159,69 @@ frame_progress = 0.264401
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("12_lfer6")
 
+[node name="GameEnd" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="End Game" type="Button" parent="UI/GameEnd"]
+offset_left = -151.0
+offset_top = 153.0
+offset_right = 156.0
+offset_bottom = 207.0
+text = "New Game?"
+
+[node name="Exit Game" type="Button" parent="UI/GameEnd"]
+offset_left = -151.0
+offset_top = 210.0
+offset_right = 156.0
+offset_bottom = 264.0
+text = "End Game?"
+
+[node name="WinMessage" type="Label" parent="UI/GameEnd"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -169.0
+offset_right = 378.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Victory!"
+
+[node name="LoseMessage" type="Label" parent="UI/GameEnd"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.0
+offset_top = -166.0
+offset_right = 391.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Defeat!"
+
 [node name="TurnHeader" type="HBoxContainer" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -220,9 +283,13 @@ text = "Confirm"
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(579, 322)
 
+[connection signal="game_over" from="." to="UI" method="_on_game_service_game_over"]
+[connection signal="game_win" from="." to="UI" method="_on_game_service_game_win"]
 [connection signal="on_attack_roll" from="." to="UI" method="_on_unit_service_on_attack_roll"]
 [connection signal="on_confirm" from="." to="UI" method="_on_confirm"]
 [connection signal="on_reroll" from="." to="UI" method="_on_game_service_on_reroll"]
+[connection signal="button_down" from="UI/GameEnd/End Game" to="." method="_on_end_game_button_down"]
+[connection signal="button_down" from="UI/GameEnd/Exit Game" to="." method="_on_game_end"]
 [connection signal="button_down" from="UI/TurnHeader/Attack" to="." method="_on_attack"]
 [connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="." method="_on_turn_end"]
 [connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="UI" method="_on_turn_end_button_down"]
