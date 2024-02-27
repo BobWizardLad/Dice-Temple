@@ -13,7 +13,8 @@ config_version=5
 config/name="Dice Temple"
 run/main_scene="res://GameMaster.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://assets/sprites/icon.svg"
+config/icon="res://assets/sprites/Icon.png"
+config/windows_native_icon="res://assets/sprites/Icon.ico"
 
 [display]
 

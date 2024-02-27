@@ -5,6 +5,7 @@ func _on_unit_service_on_attack_roll(attack: Node2D):
 	$TurnHeader.visible = false # Hide turn menu
 	$AttackHeader.visible = true # Show reroll menu
 	$Rerolls.visible = true
+	$Rerolls.text = String.num_int64(3)
 
 func _on_confirm():
 	$TurnHeader.visible = true # Show turn menu
