@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ces3ldu6qomrw"]
 
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_wa33b"]
+[ext_resource type="Script" path="res://assets/scripts/MainMenu.gd" id="1_wa33b"]
 [ext_resource type="PackedScene" uid="uid://pwkn0vt7sjuc" path="res://MainMenu.tscn" id="2_kkqt0"]
 
 [node name="GameMaster" type="Node2D"]

@@ -4,7 +4,7 @@ extends Node2D
 @export var health: int # Current hitpoints, life, etc.
 @export var team: int # Team num will determine who can attack who.
 
-@onready var health_display: Control = $ProgressBar
+@onready var health_display: Control = $HealthBar
 @onready var attack_handler: Node2D = $AttacksHandler
 @onready var sprite: AnimatedSprite2D = $Sprite
 

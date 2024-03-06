@@ -18,9 +18,6 @@ config/windows_native_icon="res://assets/sprites/Icon.ico"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=650
-window/size/resizable=false
 window/stretch/scale=1.15
 
 [dotnet]

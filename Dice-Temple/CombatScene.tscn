@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dgfnu7365whg1"]
+[gd_scene load_steps=36 format=3 uid="uid://dgfnu7365whg1"]
 
 [ext_resource type="Script" path="res://assets/scripts/GameService.gd" id="1_2v1jr"]
 [ext_resource type="Texture2D" uid="uid://cixhjchdnymed" path="res://assets/sprites/subway_temple.png" id="2_1e683"]
@@ -7,77 +7,154 @@
 [ext_resource type="Script" path="res://assets/scripts/UnitService.gd" id="3_lnayv"]
 [ext_resource type="PackedScene" uid="uid://dtr4jqs87b4t4" path="res://componentScenes/Unit.tscn" id="4_n7p2r"]
 [ext_resource type="Resource" uid="uid://dh370xeg8m05q" path="res://assets/resources/beam.tres" id="5_flugx"]
-[ext_resource type="Texture2D" uid="uid://5rdgl3eac8pk" path="res://assets/sprites/splorerSprite.png" id="6_ddm8p"]
 [ext_resource type="Resource" uid="uid://ces3ks41476pt" path="res://assets/resources/light_arrow.tres" id="6_n4g15"]
-[ext_resource type="Texture2D" uid="uid://b6468kpnhoiis" path="res://assets/sprites/unit_silhouette.png" id="6_ox0xy"]
 [ext_resource type="Resource" uid="uid://b0hero0vbk4je" path="res://assets/resources/first_aid.tres" id="7_2u8k8"]
 [ext_resource type="Resource" uid="uid://d15i43h010w0s" path="res://assets/resources/multi-beam.tres" id="7_honug"]
-[ext_resource type="Texture2D" uid="uid://dg5rqtd4hl8qe" path="res://assets/sprites/unit_silhouette_attacking.png" id="8_urp4p"]
-[ext_resource type="Script" path="res://UiController.gd" id="12_lfer6"]
+[ext_resource type="Script" path="res://assets/scripts/UiController.gd" id="12_lfer6"]
+[ext_resource type="Texture2D" uid="uid://dm4xj37cvpn1" path="res://assets/sprites/hemagoblin-Sheet.png" id="12_y4b8l"]
+[ext_resource type="Texture2D" uid="uid://ds6ukv10q7t5e" path="res://assets/sprites/blank_dice.png" id="13_52jua"]
 [ext_resource type="PackedScene" uid="uid://b57vmpmd8yu3n" path="res://assets/resources/BlankAttack.tscn" id="13_qamlw"]
+[ext_resource type="Texture2D" uid="uid://g6pj62tjyygh" path="res://assets/sprites/ui_panel.png" id="15_o1wot"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1mxik"]
-atlas = ExtResource("6_ddm8p")
-region = Rect2(0, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkpon"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7227c"]
-atlas = ExtResource("6_ddm8p")
-region = Rect2(512, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_oet7x"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fxup"]
-atlas = ExtResource("6_ddm8p")
-region = Rect2(1024, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_74seb"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0kby"]
-atlas = ExtResource("6_ddm8p")
-region = Rect2(1536, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6s5m"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwjad"]
-atlas = ExtResource("6_ddm8p")
-region = Rect2(2048, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5l5s"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4qtw"]
-atlas = ExtResource("6_ddm8p")
-region = Rect2(2560, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_345cj"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7wh2u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yajn"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho8l4"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tshp4"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvbqp"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a63hr"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl7kl"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av8r2"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbail"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7n76"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n80l"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wihsl"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbhu7"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyywr"]
+atlas = ExtResource("12_y4b8l")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ighxd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1mxik")
+"texture": SubResource("AtlasTexture_mkpon")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7227c")
+"texture": SubResource("AtlasTexture_oet7x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2fxup")
+"texture": SubResource("AtlasTexture_74seb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i0kby")
+"texture": SubResource("AtlasTexture_x6s5m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pwjad")
+"texture": SubResource("AtlasTexture_b5l5s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v4qtw")
+"texture": SubResource("AtlasTexture_345cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yajn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho8l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tshp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvbqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a63hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl7kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av8r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7n76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n80l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wihsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbhu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyywr")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_58kdp"]
-animations = [{
-"frames": [{
-"duration": 2.7,
-"texture": ExtResource("6_ox0xy")
-}, {
-"duration": 2.5,
-"texture": ExtResource("8_urp4p")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
+"speed": 18.0
 }]
 
 [node name="GameService" type="Node2D"]
@@ -87,28 +164,32 @@ script = ExtResource("1_2v1jr")
 
 [node name="BG" type="Sprite2D" parent="Environment Sprites"]
 modulate = Color(0.870588, 0.870588, 0.870588, 1)
-position = Vector2(657, 321)
+position = Vector2(661, 349)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_1e683")
 
 [node name="UnitMat" type="Sprite2D" parent="Environment Sprites"]
-position = Vector2(368, 546)
+position = Vector2(893, 586)
+scale = Vector2(2.78125, 2.78125)
 texture = ExtResource("3_kuuom")
 
 [node name="UnitMat2" type="Sprite2D" parent="Environment Sprites"]
-position = Vector2(872, 543)
+position = Vector2(372, 583)
+scale = Vector2(2.96143, 2.96143)
 texture = ExtResource("3_kuuom")
 
 [node name="DiceService" type="Node2D" parent="."]
 script = ExtResource("2_s5568")
 
 [node name="UnitService" type="Node2D" parent="."]
+position = Vector2(12, -57)
 script = ExtResource("3_lnayv")
 
 [node name="Player" parent="UnitService" instance=ExtResource("4_n7p2r")]
-position = Vector2(367, 303)
-HEALTH_MAX = 24
-health = 24
+position = Vector2(331, 492)
+HEALTH_MAX = 30
+health = 30
+metadata/_edit_group_ = true
 
 [node name="Attack" parent="UnitService/Player/AttacksHandler" index="0"]
 attack_unique = ExtResource("5_flugx")
@@ -129,24 +210,16 @@ attack_unique = ExtResource("5_flugx")
 attack_unique = ExtResource("7_2u8k8")
 
 [node name="Sprite" parent="UnitService/Player" index="1"]
-position = Vector2(-11, 77)
 scale = Vector2(0.572266, 0.572266)
-sprite_frames = SubResource("SpriteFrames_7wh2u")
 autoplay = "default"
 frame_progress = 0.948222
 
-[node name="ProgressBar" parent="UnitService/Player" index="2"]
-offset_left = -86.0
-offset_top = -80.0
-offset_right = 81.0
-offset_bottom = -53.0
-metadata/_edit_use_anchors_ = true
-
 [node name="Enemy" parent="UnitService" instance=ExtResource("4_n7p2r")]
-position = Vector2(872, 472)
+position = Vector2(886, 583)
 HEALTH_MAX = 30
 health = 30
 team = 1
+metadata/_edit_group_ = true
 
 [node name="Attack" parent="UnitService/Enemy/AttacksHandler" index="0"]
 attack_unique = ExtResource("5_flugx")
@@ -167,147 +240,210 @@ attack_unique = ExtResource("5_flugx")
 attack_unique = ExtResource("5_flugx")
 
 [node name="Sprite" parent="UnitService/Enemy" index="1"]
-sprite_frames = SubResource("SpriteFrames_58kdp")
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ighxd")
 autoplay = "default"
-frame_progress = 0.264401
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("12_lfer6")
 
-[node name="GameEnd" type="Control" parent="UI"]
+[node name="AttackDisplay" type="NinePatchRect" parent="UI"]
 visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 428.0
+offset_top = 154.0
+offset_right = 849.0
+offset_bottom = 232.0
+texture = ExtResource("13_52jua")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
-[node name="End Game" type="Button" parent="UI/GameEnd"]
-layout_mode = 0
-offset_left = -151.0
-offset_top = 153.0
-offset_right = 156.0
-offset_bottom = 207.0
-text = "New Game?"
-
-[node name="Exit Game" type="Button" parent="UI/GameEnd"]
-layout_mode = 0
-offset_left = -151.0
-offset_top = 210.0
-offset_right = 156.0
-offset_bottom = 264.0
-text = "End Game?"
-
-[node name="WinMessage" type="Label" parent="UI/GameEnd"]
-visible = false
+[node name="AttackName" type="Label" parent="UI/AttackDisplay"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -169.0
-offset_right = 378.0
-offset_bottom = 104.0
+offset_left = -130.5
+offset_top = -36.0
+offset_right = 128.5
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Test Name"
+
+[node name="RerollCounter" type="NinePatchRect" parent="UI"]
+visible = false
+offset_left = 848.0
+offset_top = 154.0
+offset_right = 926.0
+offset_bottom = 232.0
+texture = ExtResource("13_52jua")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Rerolls" type="Label" parent="UI/RerollCounter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -34.5
+offset_right = 14.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="AttackHeader" type="NinePatchRect" parent="UI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -295.5
+offset_right = 295.5
+offset_bottom = 151.0
+grow_horizontal = 2
+texture = ExtResource("15_o1wot")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="UI/AttackHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -59.0
+offset_right = 279.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reroll" type="Button" parent="UI/AttackHeader/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Reroll"
+
+[node name="Confirm" type="Button" parent="UI/AttackHeader/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Confirm"
+
+[node name="TurnHeader" type="NinePatchRect" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -327.0
+offset_right = 327.0
+offset_bottom = 151.0
+grow_horizontal = 2
+texture = ExtResource("15_o1wot")
+metadata/_edit_group_ = true
+
+[node name="ButtonContainer" type="HBoxContainer" parent="UI/TurnHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -59.0
+offset_right = 308.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Attack" type="Button" parent="UI/TurnHeader/ButtonContainer"]
+custom_minimum_size = Vector2(152, 118)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Attack"
+
+[node name="TurnEnd" type="Button" parent="UI/TurnHeader/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Turn End"
+
+[node name="GameEnd" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -533.0
+offset_right = -285.0
+offset_bottom = -493.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="EndHeader" type="NinePatchRect" parent="UI/GameEnd"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 326.0
+offset_right = 426.0
+offset_bottom = 401.0
+texture = ExtResource("15_o1wot")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/GameEnd/EndHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -28.5
+offset_right = 114.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="End Game" type="Button" parent="UI/GameEnd/EndHeader/HBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Exit Game" type="Button" parent="UI/GameEnd/EndHeader/HBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="WinMessage" type="Label" parent="UI/GameEnd"]
+visible = false
+layout_mode = 2
+offset_left = -18.0
+offset_top = 17.0
+offset_right = 710.0
+offset_bottom = 290.0
 theme_override_font_sizes/font_size = 200
 text = "Victory!"
 
 [node name="LoseMessage" type="Label" parent="UI/GameEnd"]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -337.0
-offset_top = -166.0
-offset_right = 391.0
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+offset_left = -8.0
+offset_top = 18.0
+offset_right = 692.0
+offset_bottom = 291.0
 theme_override_font_sizes/font_size = 200
 text = "Defeat!"
 
-[node name="TurnHeader" type="HBoxContainer" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -256.5
-offset_right = 256.5
-offset_bottom = 118.0
-grow_horizontal = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-alignment = 1
-
-[node name="Attack" type="Button" parent="UI/TurnHeader"]
-custom_minimum_size = Vector2(152, 118)
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Atk"
-
-[node name="TurnEnd" type="Button" parent="UI/TurnHeader"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Turn End"
-
-[node name="AttackHeader" type="HBoxContainer" parent="UI"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -256.0
-offset_right = 256.0
-offset_bottom = 118.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="Reroll" type="Button" parent="UI/AttackHeader"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Reroll"
-
-[node name="Confirm" type="Button" parent="UI/AttackHeader"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Confirm"
-
-[node name="Rerolls" type="Label" parent="UI"]
-visible = false
-offset_left = 824.0
-offset_top = 129.0
-offset_right = 853.0
-offset_bottom = 198.0
-theme_override_font_sizes/font_size = 50
-text = "3"
-
-[node name="AttackName" type="Label" parent="UI"]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.291
-anchor_right = 0.5
-anchor_bottom = 0.291
-offset_left = -53.0
-offset_top = -61.15
-offset_right = 202.0
-offset_bottom = 23.85
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(579, 322)
+position = Vector2(638, 348)
 
 [node name="BlankAttack" parent="." instance=ExtResource("13_qamlw")]
 visible = false
@@ -317,13 +453,13 @@ visible = false
 [connection signal="on_attack_roll" from="." to="UI" method="_on_unit_service_on_attack_roll"]
 [connection signal="on_confirm" from="." to="UI" method="_on_confirm"]
 [connection signal="on_reroll" from="." to="UI" method="_on_game_service_on_reroll"]
-[connection signal="button_down" from="UI/GameEnd/End Game" to="." method="_on_end_game_button_down"]
-[connection signal="button_down" from="UI/GameEnd/Exit Game" to="." method="_on_game_end"]
-[connection signal="button_down" from="UI/TurnHeader/Attack" to="." method="_on_attack"]
-[connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="." method="_on_turn_end"]
-[connection signal="button_down" from="UI/TurnHeader/TurnEnd" to="UI" method="_on_turn_end_button_down"]
-[connection signal="button_down" from="UI/AttackHeader/Reroll" to="." method="_on_reroll"]
-[connection signal="button_down" from="UI/AttackHeader/Confirm" to="." method="_on_confirm"]
+[connection signal="button_down" from="UI/AttackHeader/ButtonContainer/Reroll" to="." method="_on_reroll"]
+[connection signal="button_down" from="UI/AttackHeader/ButtonContainer/Confirm" to="." method="_on_confirm"]
+[connection signal="button_down" from="UI/TurnHeader/ButtonContainer/Attack" to="." method="_on_attack"]
+[connection signal="button_down" from="UI/TurnHeader/ButtonContainer/TurnEnd" to="." method="_on_turn_end"]
+[connection signal="button_down" from="UI/TurnHeader/ButtonContainer/TurnEnd" to="UI" method="_on_turn_end_button_down"]
+[connection signal="button_down" from="UI/GameEnd/EndHeader/HBoxContainer/End Game" to="." method="_on_end_game_button_down"]
+[connection signal="button_down" from="UI/GameEnd/EndHeader/HBoxContainer/Exit Game" to="." method="_on_game_end"]
 
 [editable path="UnitService/Player"]
 [editable path="UnitService/Enemy"]
