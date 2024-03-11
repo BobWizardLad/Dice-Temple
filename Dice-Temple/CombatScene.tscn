@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dgfnu7365whg1"]
+[gd_scene load_steps=37 format=3 uid="uid://dgfnu7365whg1"]
 
 [ext_resource type="Script" path="res://assets/scripts/GameService.gd" id="1_2v1jr"]
 [ext_resource type="Texture2D" uid="uid://cixhjchdnymed" path="res://assets/sprites/subway_temple.png" id="2_1e683"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ds6ukv10q7t5e" path="res://assets/sprites/blank_dice.png" id="13_52jua"]
 [ext_resource type="PackedScene" uid="uid://b57vmpmd8yu3n" path="res://assets/resources/BlankAttack.tscn" id="13_qamlw"]
 [ext_resource type="Texture2D" uid="uid://g6pj62tjyygh" path="res://assets/sprites/ui_panel.png" id="15_o1wot"]
+[ext_resource type="SpriteFrames" uid="uid://bmvdx0aujifcv" path="res://assets/sprites/beam_frames.tres" id="16_e2hw7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mkpon"]
 atlas = ExtResource("12_y4b8l")
@@ -154,7 +155,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 18.0
+"speed": 10.0
 }]
 
 [node name="GameService" type="Node2D"]
@@ -448,11 +449,20 @@ position = Vector2(638, 348)
 [node name="BlankAttack" parent="." instance=ExtResource("13_qamlw")]
 visible = false
 
+[node name="AttackSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(659, 462)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("16_e2hw7")
+frame = 6
+frame_progress = 0.269833
+
 [connection signal="game_over" from="." to="UI" method="_on_game_service_game_over"]
 [connection signal="game_win" from="." to="UI" method="_on_game_service_game_win"]
 [connection signal="on_attack_roll" from="." to="UI" method="_on_unit_service_on_attack_roll"]
 [connection signal="on_confirm" from="." to="UI" method="_on_confirm"]
 [connection signal="on_reroll" from="." to="UI" method="_on_game_service_on_reroll"]
+[connection signal="attack_action" from="UnitService/Player" to="." method="_on_player_attack_action"]
 [connection signal="button_down" from="UI/AttackHeader/ButtonContainer/Reroll" to="." method="_on_reroll"]
 [connection signal="button_down" from="UI/AttackHeader/ButtonContainer/Confirm" to="." method="_on_confirm"]
 [connection signal="button_down" from="UI/TurnHeader/ButtonContainer/Attack" to="." method="_on_attack"]

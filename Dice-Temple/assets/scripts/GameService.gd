@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var unit_service: Node2D = $UnitService
 @onready var dice_service: Node2D = $DiceService
+@onready var attack_anim: Node2D = $AttackSprite
 
 var my_scene: Resource = load("res://CombatScene.tscn")
 
@@ -93,5 +94,9 @@ func _on_confirm():
 func _on_game_end():
 	get_tree().quit()
 
+# The codebase needs to b redesigned!!!! Not hppening today...
 func _on_end_game_button_down():
 	get_tree().reload_current_scene()
+
+func _on_player_attack_action():
+	pass # Replace with function body.

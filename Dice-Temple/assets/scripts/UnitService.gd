@@ -13,9 +13,6 @@ func resolve_attack(target: Node2D, attacker: Node2D, attack: Node2D):
 	var hit_value = attack.get_damage()
 	var healing = attack.get_healing()
 	
-	attacker.anim_attack()
-	target.anim_damaged()
-	
 	target.mod_health(-1 * hit_value)
 	attacker.mod_health(healing)
 	

@@ -19,3 +19,6 @@ func get_healing() -> int:
 
 func get_blocking() -> int:
 	return attack_unique.blocking
+
+func get_attack_frames():
+	return attack_unique.attack_texture

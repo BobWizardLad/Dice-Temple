@@ -9,7 +9,7 @@ script = ExtResource("1_wa33b")
 [node name="MainMenu" parent="." instance=ExtResource("2_kkqt0")]
 script = null
 
-[connection signal="button_down" from="MainMenu/CanvasLayer/HBoxContainer/Start" to="." method="_on_start_button_down"]
-[connection signal="button_down" from="MainMenu/CanvasLayer/HBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/NinePatchRect/HBoxContainer/Start" to="." method="_on_start"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/NinePatchRect/HBoxContainer/Exit" to="." method="_on_exit"]
 
 [editable path="MainMenu"]

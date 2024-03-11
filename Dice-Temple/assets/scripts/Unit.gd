@@ -4,6 +4,8 @@ extends Node2D
 @export var health: int # Current hitpoints, life, etc.
 @export var team: int # Team num will determine who can attack who.
 
+signal attack_action # Signals visuals for the attack action
+
 @onready var health_display: Control = $HealthBar
 @onready var attack_handler: Node2D = $AttacksHandler
 @onready var sprite: AnimatedSprite2D = $Sprite
@@ -31,9 +33,3 @@ func get_attack_dice() -> Array:
 
 func get_team() -> int:
 	return team
-
-func anim_damaged():
-	pass
-
-func anim_attack():
-	pass

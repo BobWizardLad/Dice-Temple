@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dh370xeg8m05q"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dh370xeg8m05q"]
 
 [ext_resource type="Script" path="res://assets/resources/resScripts/UniqueAttack.gd" id="1_dq58f"]
+[ext_resource type="SpriteFrames" uid="uid://bmvdx0aujifcv" path="res://assets/sprites/beam_frames.tres" id="1_u3l4a"]
 
 [resource]
 script = ExtResource("1_dq58f")
@@ -8,3 +9,4 @@ title = "Beam"
 damage = 6
 healing = 0
 blocking = 0
+attack_texture = ExtResource("1_u3l4a")
